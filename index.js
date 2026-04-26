@@ -22,10 +22,13 @@ db.once('open', () => console.log('Now connected to database'));
 
 
 const corsOption = {
-	origin: ["http://localhost:5173"],
-	credentials: true,
-	optionSuccessStatus: 200
-}
+  origin: [
+    "http://localhost:5173",
+    "https://task-app-frontend-eight.vercel.app"
+  ],
+  credentials: true,
+  optionSuccessStatus: 200
+};
 
 app.use(express.json());
 app.use(cors(corsOption));
