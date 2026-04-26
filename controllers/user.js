@@ -51,7 +51,15 @@ module.exports.loginUser = async (req, res, next) => {
 
 		const token = auth.createAccessToken(user);
 
-		return res.status(200).send({access: token});
+		return res.status(200).send({
+		  access: token,
+		  user: {
+		    _id: user._id,
+		    firstName: user.firstName,
+		    lastName: user.lastName,
+		    email: user.email
+		  }
+		});
 
 
 	}catch(err){
